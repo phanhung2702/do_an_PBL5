@@ -1,0 +1,74 @@
+<!-- static/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Smart Home System</h1>
+        <button class="btn" id="open-door-btn">Open Door</button>
+        <div class="message" id="message"></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#open-door-btn').click(function () {
+                // Capture image from camera or file input
+                // Example: for demonstration, send a sample image
+                const sampleImage = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wB...'; // Base64 encoded image data
+                $.ajax({
+                    type: 'POST',
+                    url: '/recognize-face',
+                    data: { image: sampleImage },
+                    success: function (response) {
+                        $('#message').text(response.message);
+                    },
+                    error: function () {
+                        $('#message').text('An error occurred. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
