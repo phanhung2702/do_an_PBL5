@@ -3,7 +3,7 @@ import json
 import datetime
 import wx
 from playsound import playsound
-defaut_config = '{"server":{"host":"192.168.1.1","user":"phanhung", "password":30, "database":"New York"},"local":{"host":"localhost","user":"user", "password":27022003, "database":"New York"},"camera":{"name":"noname","id":0}}'
+defaut_config = '{"server":{"host":"192.168.1.1","user":"phanhung", "password":27, "database":"New York"},"local":{"host":"localhost","user":"user", "password":27022003, "database":"New York"},"camera":{"name":"noname","id":0}}'
 config = json.loads(defaut_config)
 try: 
   mydb = mysql.connector.connect(
